@@ -1,0 +1,23 @@
+package atividades;
+
+import java.util.Scanner;
+
+public class VariosNumerosInteiros {
+
+	public static void main(String[] args) {
+		
+		Scanner ler = new Scanner(System.in);
+		int numD = 0;
+		int soma = 0;
+		
+		
+		 while (numD>0) {
+			 System.out.println("Digite numeros positivos para somar");
+			 soma += numD;
+			 numD = ler.nextInt();
+		 }
+		
+		System.out.println("SOMA IGUAL A " + soma);
+	}
+
+}

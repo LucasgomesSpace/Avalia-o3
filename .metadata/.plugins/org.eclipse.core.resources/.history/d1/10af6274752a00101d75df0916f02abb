@@ -1,0 +1,46 @@
+package com.avaliação3.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.avaliação3.entities.GerenciaCidade;
+import com.avaliação3.repository.GerenciaCidadeRepository;
+
+@Service
+public class GerenciaCidadeService {
+
+
+	private final GerenciaCidadeRepository gerenciaCidadeRepository;
+
+	public GerenciaCidadeService (GerenciaCidadeRepository gerenciaCidadeRepository) {
+		this.gerenciaCidadeRepository =gerenciaCidadeRepository;
+	}
+
+	public GerenciaCidade salvaCidade (GerenciaCidade GerenciaCidade) {
+		return gerenciaCidadeRepository.save(GerenciaCidade);
+	}
+
+	public List<GerenciaCidade> buscatodasCidades(){
+		return gerenciaCidadeRepository.findAll();
+	}
+
+	public GerenciaCidade buscaporId (Long id) {
+		Optional<GerenciaCidade> existeCidade = gerenciaCidadeRepository.findById(id);
+		return existeCidade.orElse(null);
+	}
+	public GerenciaCidade alteraGerenciaCidade(Long id,GerenciaCidade GerenciaCidadeAlterada) {
+		Optional<GerenciaCidade> AlteraCidade = gerenciaCidadeRepository.findById(id);
+		if(AlteraCidade.isPresent()) {
+			return gerenciaCidadeRepository.save(GerenciaCidadeAlterada);
+		}
+		return null;
+	}
+	public boolean deleteCidade(Long id) {
+		Optional<GerenciaCidade> deletaCidade =gerenciaCidadeRepository.findById(id);
+		if(deletaCidade.isPresent()) {
+		 gerenciaCidadeRepository.deleteById(id);
+		}
+		return true;
+	}

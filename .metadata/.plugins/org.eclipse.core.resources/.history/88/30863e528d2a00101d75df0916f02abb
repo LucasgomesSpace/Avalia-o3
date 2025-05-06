@@ -1,0 +1,51 @@
+package atividades;
+
+import java.util.Scanner;
+
+public class CaixaEletronico {
+
+	public static void main(String[] args) {
+		Scanner ler = new Scanner(System.in);
+		System.out.println("SEJA BEM VINDO AO BANCO!!!");
+		int opcao = 0;
+		double saldo = 0;
+		double deposito = 0.0;
+
+		while(opcao!=4) {
+			System.out.println("Escolha uma das operações abaixo");
+			System.out.println("1 - Depositar ");
+			System.out.println("2 - Sacar ");
+			System.out.println("3 - Ver Saldo ");
+			System.out.println("4 - Sair ");
+			opcao = ler.nextInt();
+
+			if(opcao == 1) {
+				System.out.println("Qual valor deseja Depositar ");
+				deposito =ler.nextDouble();
+				saldo +=deposito;
+			}
+			else if(opcao == 2) {
+				if(saldo <= 0) {
+					System.out.println("SALDO INSUFICIENTE");
+				}
+				System.out.println("Quanto deseja sacar ?");
+				double saque = ler.nextDouble();
+				if(saque>saldo) {
+					System.out.println("SALDO INSUFICIENTE");
+				}
+				saldo = saldo - saque;
+			}
+			else if(opcao == 3) {
+				System.out.println("Seu saldo Atual é de : " + saldo);
+			}
+			else if(opcao == 4) {
+				System.out.println("Encerrando ...");
+			}
+			else {
+				System.out.println("OPÇÃO INVALIDA");
+			}
+		}
+		ler.close();
+	}
+
+}

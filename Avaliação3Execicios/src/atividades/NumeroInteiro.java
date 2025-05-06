@@ -1,0 +1,19 @@
+package atividades;
+
+import java.util.Scanner;
+
+public class NumeroInteiro {
+
+	public static void main(String[] args) {
+		Scanner ler = new Scanner(System.in);
+		System.out.print("Digite o numero 1 : ");
+		int num1 =ler.nextInt();
+		System.out.print("Digite o numero 2 : ");
+		int num2 =ler.nextInt();
+
+		System.out.println((num1>num2?"Numero 1 Maior que Numero 2":"Numero 2 Maior que Numero 1"));
+
+		ler.close();
+	}
+
+}

@@ -1,0 +1,13 @@
+package atividades;
+
+public class NumeroInteiro {
+
+	public static void main(String[] args) {
+		int num1 = 2;
+		int num2 = 3;
+		
+		System.out.println((num1>num2?"Numero 1 Maior que Numero 2":"Numero 2 Maior que Numero 1"));
+		
+	}
+
+}

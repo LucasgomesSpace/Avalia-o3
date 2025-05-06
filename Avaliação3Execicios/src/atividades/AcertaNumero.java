@@ -1,0 +1,33 @@
+package atividades;
+
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class AcertaNumero {
+
+	public static void main(String[] args) {
+
+		Scanner ler = new Scanner(System.in);
+		Random aleatorio = new Random();
+		int numeroSecreto = aleatorio.nextInt(100)+1;
+
+		for(int i = 0; i<=100; i++) {			
+			System.out.print("Digite um numero : ");
+			int numero = ler.nextInt();
+			if(numero > numeroSecreto) {
+				System.out.println("O numero é menor que " + numero);
+			}
+			else if(numero < numeroSecreto) {
+				System.out.println("O numero é maior que " + numero);
+			}
+			else if(numero == numeroSecreto) {
+				System.out.println("Você acerto com " + i + " Tentativas ");	
+				i=100;
+			} 
+		}
+		ler.close();
+
+	}
+
+}
